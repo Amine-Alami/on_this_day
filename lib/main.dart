@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:on_this_day/events_list/events_list.dart';
+import 'package:on_this_day/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,6 +39,14 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: EventsList());
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/back-image.jpg"),
+              fit: BoxFit.cover,
+              opacity: 0.7
+            )
+          ),
+          child: const Home()));
   }
 }
