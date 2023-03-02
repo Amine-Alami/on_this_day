@@ -2,25 +2,23 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class Event {
-  String? title;
+  String title;
   String? imageUrl;
-  String? year;
-  String? description;
+  int year;
+  String description;
 
-  Event({ 
-    this.title,
-    this.description,
-    this.imageUrl,
-    this.year
-  });
+  Event(
+      {required this.title,
+      required this.description,
+      required this.imageUrl,
+      required this.year});
 
   factory Event.fromJson(json) {
     return Event(
-      title : json["pages"][0]["titles"]?["normalized"],
-      imageUrl : json["pages"][0]["originalimage"]?["source"],
-      description : json["text"],
-      year : json["year"]
-    );
+        title: json["pages"][0]["titles"]?["normalized"],
+        imageUrl: json["pages"][0]["thumbnail"]?["source"],
+        description: json["text"],
+        year: json["year"]);
   }
 
   @override
@@ -32,9 +30,9 @@ class Event {
   }
 }
 
-Future<List<Event>> fetch() async {
+Future<List<Event>> fetch(String langue, String type, String month, String day) async {
   var url = Uri.parse(
-      'https://api.wikimedia.org/feed/v1/wikipedia/fr/onthisday/events/03/01');
+      'https://api.wikimedia.org/feed/v1/wikipedia/$langue/onthisday/$type/$month/$day');
   var response = await http.get(url);
 
   if (response.statusCode == 200) {
