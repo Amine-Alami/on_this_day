@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:on_this_day/home/dropdown.dart';
+import 'package:on_this_day/home/dropdown2.dart';
 import 'package:on_this_day/home/datepicker.dart';
 
 class Home extends StatelessWidget {
@@ -31,10 +32,21 @@ class Home extends StatelessWidget {
             ),
         
           Padding(
-            padding: const EdgeInsets.all(52.0),
+            padding: const EdgeInsets.all(32.0),
             child: Container(
               child: const Column(children: <Widget>[
                 DropDown(),
+                
+              ]
+              ),
+            ),
+          ),
+
+                 Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Container(
+              child: const Column(children: <Widget>[
+                DropDown2(),
                 
               ]
               ),

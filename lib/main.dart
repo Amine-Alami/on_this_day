@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
             image: DecorationImage(
               image: AssetImage("assets/back-image.jpg"),
               fit: BoxFit.cover,
-              opacity: 0.7
+              opacity: 0.5
             )
           ),
           child: const Home()));

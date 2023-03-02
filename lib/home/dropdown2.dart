@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 
-class DropDown extends StatefulWidget {
-  const DropDown({super.key});
+class DropDown2 extends StatefulWidget {
+  const DropDown2({super.key});
 
   @override
-  State<DropDown> createState() => _DropDownState();
+  State<DropDown2> createState() => _DropDown2State();
 }
 
-class _DropDownState extends State<DropDown> {
+class _DropDown2State extends State<DropDown2> {
   final List<String> items = [
-    'Event',
-    'Birth',
-    'Death',
-    'Holiday'
+    'EN',
+    'FR',
+    'AR'
+    
   ];
   String? selectedValue;
 
@@ -23,7 +23,7 @@ class _DropDownState extends State<DropDown> {
       child: DropdownButtonHideUnderline(
         child: DropdownButton2(
           hint: const Text(
-            'Choisir le type',
+            'Choisir la langue',
             style: TextStyle(
               fontSize: 15,
               color: Colors.black,
