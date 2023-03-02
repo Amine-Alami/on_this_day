@@ -2,23 +2,25 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class Event {
-  var id;
-  var title;
-  var imageUrl;
-  var year;
-  var description;
+  String? title;
+  String? imageUrl;
+  String? year;
+  String? description;
 
-  Event();
+  Event({ 
+    this.title,
+    this.description,
+    this.imageUrl,
+    this.year
+  });
 
   factory Event.fromJson(json) {
-    Event event = Event();
-    event.title = json["pages"][0]["titles"]["normalized"];
-    event.imageUrl = json["pages"][0]["originalimage"] != null
-        ? json["pages"][0]["originalimage"]["source"]
-        : "no image to display";
-    event.description = json["text"];
-    event.year = json["year"];
-    return event;
+    return Event(
+      title : json["pages"][0]["titles"]?["normalized"],
+      imageUrl : json["pages"][0]["originalimage"]?["source"],
+      description : json["text"],
+      year : json["year"]
+    );
   }
 
   @override
