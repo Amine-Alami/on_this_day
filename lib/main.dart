@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:on_this_day/events_list/events_list.dart';
 import 'package:on_this_day/home/home.dart';
+import 'package:go_router/go_router.dart';
+
+final _router = GoRouter(routes: [
+  GoRoute(path: '/', builder: (context, state) => const Home()),
+  GoRoute(path: '/events', builder: (context, state) => const EventsList())
+]);
 
 void main() {
   runApp(const MyApp());

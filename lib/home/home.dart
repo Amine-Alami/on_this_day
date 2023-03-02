@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:on_this_day/home/dropdown.dart';
 import 'package:on_this_day/home/datepicker.dart';
+import 'package:on_this_day/home/search_button.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -40,8 +41,7 @@ class Home extends StatelessWidget {
               ),
             ),
           ),
-
-         
+          SearchButton()
         ],
       ),
     );
