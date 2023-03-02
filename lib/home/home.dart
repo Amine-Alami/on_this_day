@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:on_this_day/dropdown.dart';
-import 'package:on_this_day/datepicker.dart';
+import 'package:on_this_day/home/dropdown.dart';
+import 'package:on_this_day/home/datepicker.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
