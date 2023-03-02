@@ -21,11 +21,12 @@ class _DatePickerState extends State<DropDown> {
     return Center(
       child: DropdownButtonHideUnderline(
         child: DropdownButton2(
-          hint: Text(
+          hint: const Text(
             'Select Type',
             style: TextStyle(
-              fontSize: 14,
-              color: Theme.of(context).hintColor,
+              fontSize: 20,
+              color: Colors.black,
+              
             ),
           ),
           items: items
@@ -34,7 +35,7 @@ class _DatePickerState extends State<DropDown> {
                     child: Text(
                       item,
                       style: const TextStyle(
-                        fontSize: 14,
+                        fontSize: 20,
                       ),
                     ),
                   ))

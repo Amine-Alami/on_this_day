@@ -39,6 +39,14 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: const Home());
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/back-image.jpg"),
+              fit: BoxFit.cover,
+              opacity: 0.7
+            )
+          ),
+          child: const Home()));
   }
 }
