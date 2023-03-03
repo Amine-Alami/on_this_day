@@ -19,11 +19,12 @@ class _DropDownState extends State<DropDown> {
       child: DropdownButtonHideUnderline(
         child: DropdownButton2(
           hint: const Text(
-            'Choisir le type',
+            'Select type',
             style: TextStyle(
               fontSize: 15,
               color: Colors.black,
             ),
+            textAlign: TextAlign.center,
           ),
           items: items
               .map((item) => DropdownMenuItem<String>(

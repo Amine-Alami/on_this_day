@@ -41,7 +41,7 @@ class _DatePickerState extends State<DatePicker> {
           ElevatedButton(
             onPressed: () => _selectDate(context),
             child: const Text(
-              'Choisir la date',style:
+              'Pick a date',style:
               TextStyle(
                 fontSize: 15,
                 color: Colors.black,

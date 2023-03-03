@@ -19,33 +19,36 @@ class Home extends StatelessWidget {
             color: Colors.white,
             child: Padding(
                 padding: const EdgeInsets.all(20),
-                child: Column(
+                child: ListView(
                   children: [
                     const Text(
-                      "Veuillez sélectionner une date et un type "
-                      "pour savoir ce qui était passé a cette date",
+                      "Please select a date and an event type "
+                      "to list what has happened on that day",
                       style: TextStyle(fontSize: 19),
                       textAlign: TextAlign.center,
                     ),
                     const Padding(
-                      padding: EdgeInsets.fromLTRB(0,70,0,0),
+                      padding: EdgeInsets.fromLTRB(0,60,0,10),
                       child: Column(children: <Widget>[
                         DatePicker(),
                       ]),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(52.0),
+                      padding: const EdgeInsets.fromLTRB(0,30,0,10),
                       child: Column(children: <Widget>[
                         DropDown((value) => event = value),
                       ]),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(52.0),
+                      padding: const EdgeInsets.fromLTRB(0,0,0,30),
                       child: Column(children: <Widget>[
                         DropDown2((value) => launge = value),
                       ]),
                     ),
-                    const SearchButton()
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(0,50,0,0),
+                      child: SearchButton(),
+                    )
                     // onPressed: () => print(launge), icon: Icon(Icons.access_alarm)
                   ],
                 )

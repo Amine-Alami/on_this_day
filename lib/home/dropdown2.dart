@@ -14,7 +14,6 @@ class _DropDown2State extends State<DropDown2> {
     'EN',
     'FR',
     'AR'
-    
   ];
   String? selectedValue;
 
@@ -24,11 +23,10 @@ class _DropDown2State extends State<DropDown2> {
       child: DropdownButtonHideUnderline(
         child: DropdownButton2(
           hint: const Text(
-            'Choisir la langue',
+            'Select language',
             style: TextStyle(
               fontSize: 15,
               color: Colors.black,
-              
             ),
           ),
           items: items

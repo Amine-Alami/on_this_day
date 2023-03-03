@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ON THIS DAY ',
       theme: ThemeData(
-        // colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 118, 51, 0)),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 118, 51, 0)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: '  On This Day'),
@@ -43,11 +43,20 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          backgroundColor: Colors.brown[600],
           title: Row(
             children: [
-              const Icon(Icons.history_edu),
-              Text(widget.title),
+              const Icon(
+                Icons.history_edu,
+                size: 40,
+                color: Colors.white
+              ),
+              Text(
+                widget.title,
+                style: const TextStyle(
+                  color: Colors.white,
+                )
+              ),
             ],
           ),
         ),

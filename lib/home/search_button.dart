@@ -20,7 +20,7 @@ class _SearchButtonState extends State<SearchButton> {
             child: 
               Text(
                 "Show me what happened",
-                style: TextStyle(fontSize: 15, color: Colors.green),
+                style: TextStyle(fontSize: 15, color: Colors.brown),
                 textAlign: TextAlign.center,
               ) 
             
