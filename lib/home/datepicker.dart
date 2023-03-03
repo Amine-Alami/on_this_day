@@ -16,8 +16,8 @@ class _DatePickerState extends State<DatePicker> {
     final DateTime? picked = await showDatePicker(
         context: context,
         initialDate: selectedDate,
-        firstDate: DateTime(2000),
-        lastDate: DateTime(2000));
+        firstDate: DateTime(2022),
+        lastDate: DateTime(2024));
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
@@ -31,14 +31,22 @@ class _DatePickerState extends State<DatePicker> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text("${selectedDate.toLocal()}".split(' ')[0],
-          style: TextStyle(fontSize: 20),),
+          Text("${selectedDate.toLocal().day.toString().padLeft(2,"0")} / "
+          "${selectedDate.toLocal().month.toString().padLeft(2,"0")}",
+            style: const TextStyle(fontSize: 20),
+          ),
           const SizedBox(
-            height: 20.0,
+            height: 5,
           ),
           ElevatedButton(
             onPressed: () => _selectDate(context),
-            child: const Text('Select date'),
+            child: const Text(
+              'Select date',style: 
+              TextStyle(
+                fontSize: 15,
+                color: Colors.black,
+              )
+            ),
           ),
         ],
       ),

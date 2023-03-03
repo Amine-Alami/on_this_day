@@ -12,7 +12,7 @@ class _DatePickerState extends State<DropDown> {
   final List<String> items = [
     'Event',
     'Birth',
-    'Deth',
+    'Death',
   ];
   String? selectedValue;
 
@@ -24,9 +24,8 @@ class _DatePickerState extends State<DropDown> {
           hint: const Text(
             'Select Type',
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 15,
               color: Colors.black,
-              
             ),
           ),
           items: items
