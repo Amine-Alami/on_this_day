@@ -2,7 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:on_this_day/events_list/event.dart';
 
 class EventsList extends StatefulWidget {
-  const EventsList({super.key});
+  EventsList({
+    super.key, 
+    required this.langue,
+    required this.type,
+    required this.day,
+    required this.month
+  });
+  String? type;
+  String? langue;
+  String? day;
+  String? month;
 
   @override
   State<EventsList> createState() => _EventsListState();
@@ -14,7 +24,10 @@ class _EventsListState extends State<EventsList> {
   @override
   void initState() {
     super.initState();
-    futureData = fetch("fr","events", "12", "26");
+    futureData = fetch(widget.langue,
+                      widget.type, 
+                      widget.month,
+                      widget.day);
   }
 
   Widget _eventCards() {
@@ -59,7 +72,7 @@ class _EventsListState extends State<EventsList> {
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          event.year.toString(),
+                          event.year != null ? event.year.toString() : "",
                           style: const TextStyle(fontWeight: FontWeight.w400,
                               color: Colors.grey),
                         )

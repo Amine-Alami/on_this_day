@@ -10,11 +10,11 @@ class DropDown2 extends StatefulWidget {
 }
 
 class _DropDown2State extends State<DropDown2> {
-  final List<String> items = [
-    'EN',
-    'FR',
-    'AR'
-  ];
+  final Map<String, String> items = {
+      ' FR':'fr',
+      ' EN':'en',
+      ' AR':'ar'
+    };
   String? selectedValue;
 
   @override
@@ -29,11 +29,11 @@ class _DropDown2State extends State<DropDown2> {
               color: Colors.black,
             ),
           ),
-          items: items
+          items: items.entries
               .map((item) => DropdownMenuItem<String>(
-                    value: item,
+                    value: item.value,
                     child: Text(
-                      item,
+                      item.key,
                       style: const TextStyle(
                         fontSize: 15,
                       ),

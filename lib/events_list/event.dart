@@ -4,7 +4,7 @@ import 'dart:convert';
 class Event {
   String title;
   String? imageUrl;
-  int year;
+  int? year;
   String description;
 
   Event(
@@ -30,14 +30,14 @@ class Event {
   }
 }
 
-Future<List<Event>> fetch(String langue, String type, String month, String day) async {
+Future<List<Event>> fetch(String? langue, String? type, String? month, String? day) async {
   var url = Uri.parse(
       'https://api.wikimedia.org/feed/v1/wikipedia/$langue/onthisday/$type/$month/$day');
   var response = await http.get(url);
 
   if (response.statusCode == 200) {
     Map<String, dynamic> jsonData = json.decode(response.body);
-    List<dynamic> eventsJson = jsonData['events'];
+    List<dynamic> eventsJson = jsonData[type];
     List<Event> events =
         eventsJson.map((eventJson) => Event.fromJson(eventJson)).toList();
     return events;

@@ -3,15 +3,22 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class DatePicker extends StatefulWidget {
-  DatePicker(this.onchanged, {super.key});
+  DatePicker(this.onchanged, this.date, {super.key});
   void Function(DateTime? value) onchanged;
+  DateTime date;
 
   @override
   State<DatePicker> createState() => _DatePickerState();
 }
 
 class _DatePickerState extends State<DatePicker> {
-  DateTime selectedDate = DateTime.now();
+  late DateTime selectedDate;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedDate = widget.date;
+  }
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -42,6 +49,8 @@ class _DatePickerState extends State<DatePicker> {
             height: 5,
           ),
           ElevatedButton(
+            style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll<Color>(Colors.white)),
             onPressed: () => _selectDate(context),
             child: const Text('Pick a date',
                 style: TextStyle(

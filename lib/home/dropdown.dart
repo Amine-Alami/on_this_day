@@ -10,11 +10,17 @@ class DropDown extends StatefulWidget {
 }
 
 class _DropDownState extends State<DropDown> {
-  final List<String> items = ['Event', 'Birth', 'Death', 'Holiday'];
+  final Map<String, String> items = {
+      'Event':'events',
+      'Holiday':'holidays',
+      'Death':'deaths',
+      'Birth':'births',
+    };
   String? selectedValue;
 
   @override
   Widget build(BuildContext context) {
+
     return Center(
       child: DropdownButtonHideUnderline(
         child: DropdownButton2(
@@ -26,11 +32,11 @@ class _DropDownState extends State<DropDown> {
             ),
             textAlign: TextAlign.center,
           ),
-          items: items
-              .map((item) => DropdownMenuItem<String>(
-                    value: item,
+          items: items.entries
+              .map((entry) => DropdownMenuItem<String>(
+                    value: entry.value,
                     child: Text(
-                      item,
+                      entry.key,
                       style: const TextStyle(
                         fontSize: 15,
                       ),
@@ -40,7 +46,7 @@ class _DropDownState extends State<DropDown> {
           value: selectedValue,
           onChanged: (value) {
             setState(() {
-            selectedValue = value;
+              selectedValue = value;
             });
             widget.onchanged(value);
           },
