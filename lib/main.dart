@@ -47,6 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
               opacity: 0.5
             )
           ),
-          child: const Home()));
+          child: Home()));
   }
 }

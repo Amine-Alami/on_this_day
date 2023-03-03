@@ -4,56 +4,40 @@ import 'package:on_this_day/home/dropdown2.dart';
 import 'package:on_this_day/home/datepicker.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  Home({super.key});
+  String? event;
+  String? launge;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      
       padding: EdgeInsets.all(32.0),
       child: Column(
         children: [
-          Container(
-            child: const Text(
-              "sélectionner une date et un type pour savoir ce qui est passé a cette date",
-              style: TextStyle(fontSize: 24),
-            ),
+          Text(
+            "sélectionner une date et un type pour savoir ce qui est passé a cette date",
+            style: TextStyle(fontSize: 24),
           ),
-
-             Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Container(
-              child: const Column(children: <Widget>[
-                DatePicker(),
-                
-              ]
-              ),
-                      ),
-            ),
-        
           Padding(
-            padding: const EdgeInsets.all(32.0),
-            child: Container(
-              child: const Column(children: <Widget>[
-                DropDown(),
-                
-              ]
-              ),
-            ),
+            padding: EdgeInsets.all(32.0),
+            child: Column(children: <Widget>[
+              DatePicker(),
+            ]),
           ),
-
-                 Padding(
-            padding: const EdgeInsets.all(32.0),
-            child: Container(
-              child: const Column(children: <Widget>[
-                DropDown2(),
-                
-              ]
-              ),
-            ),
+          Padding(
+            padding: EdgeInsets.all(32.0),
+            child: Column(children: <Widget>[
+              DropDown((value) => event = value),
+            ]),
           ),
-
-         
+          Padding(
+            padding: EdgeInsets.all(32.0),
+            child: Column(children: <Widget>[
+              DropDown2((value) => launge = value),
+            ]),
+          ),
+          IconButton(
+              onPressed: () => print(launge), icon: Icon(Icons.access_alarm))
         ],
       ),
     );

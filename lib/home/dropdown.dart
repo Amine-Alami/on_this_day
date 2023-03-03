@@ -2,19 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 
 class DropDown extends StatefulWidget {
-  const DropDown({super.key});
+  DropDown(this.onchanged, {super.key});
+  void Function(String? value) onchanged;
 
   @override
   State<DropDown> createState() => _DropDownState();
 }
 
 class _DropDownState extends State<DropDown> {
-  final List<String> items = [
-    'Event',
-    'Birth',
-    'Death',
-    'Holiday'
-  ];
+  final List<String> items = ['Event', 'Birth', 'Death', 'Holiday'];
   String? selectedValue;
 
   @override
@@ -27,7 +23,6 @@ class _DropDownState extends State<DropDown> {
             style: TextStyle(
               fontSize: 15,
               color: Colors.black,
-              
             ),
           ),
           items: items
@@ -44,8 +39,9 @@ class _DropDownState extends State<DropDown> {
           value: selectedValue,
           onChanged: (value) {
             setState(() {
-              selectedValue = value as String;
+            selectedValue = value;
             });
+            widget.onchanged(value);
           },
           buttonStyleData: const ButtonStyleData(
             height: 40,
