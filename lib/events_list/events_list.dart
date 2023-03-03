@@ -39,7 +39,7 @@ class _EventsListState extends State<EventsList> {
 
   Widget _card(Event event) {
     return Container(
-        padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
+        padding: const EdgeInsets.fromLTRB(30,20,30,0),
         width: double.maxFinite,
         child: Card(
             elevation: 5,

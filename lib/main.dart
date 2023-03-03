@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:on_this_day/events_list/events_list.dart';
 import 'package:on_this_day/home/home.dart';
+import 'package:go_router/go_router.dart';
+
+final _router = GoRouter(routes: [
+  GoRoute(path: '/', builder: (context, state) => const Home()),
+  GoRoute(path: '/events', builder: (context, state) => const EventsList())
+]);
 
 void main() {
   runApp(const MyApp());
@@ -14,10 +21,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ON THIS DAY ',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        // colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 118, 51, 0)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'ON THIS DAY'),
+      home: const MyHomePage(title: '  On This Day'),
     );
   }
 }
@@ -37,7 +44,12 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
+          title: Row(
+            children: [
+              const Icon(Icons.history_edu),
+              Text(widget.title),
+            ],
+          ),
         ),
         body: Container(
           decoration: const BoxDecoration(
