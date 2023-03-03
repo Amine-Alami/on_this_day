@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class DatePicker extends StatefulWidget {
-  const DatePicker({Key? key}) : super(key: key);
+  DatePicker(this.onchanged, {super.key});
+  void Function(DateTime? value) onchanged;
 
   @override
   State<DatePicker> createState() => _DatePickerState();
@@ -21,6 +22,7 @@ class _DatePickerState extends State<DatePicker> {
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
+        widget.onchanged(selectedDate);
       });
     }
   }
@@ -31,8 +33,9 @@ class _DatePickerState extends State<DatePicker> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text("${selectedDate.toLocal().day.toString().padLeft(2,"0")} / "
-          "${selectedDate.toLocal().month.toString().padLeft(2,"0")}",
+          Text(
+            "${selectedDate.toLocal().day.toString().padLeft(2, "0")} / "
+            "${selectedDate.toLocal().month.toString().padLeft(2, "0")}",
             style: const TextStyle(fontSize: 20),
           ),
           const SizedBox(
@@ -40,13 +43,11 @@ class _DatePickerState extends State<DatePicker> {
           ),
           ElevatedButton(
             onPressed: () => _selectDate(context),
-            child: const Text(
-              'Pick a date',style:
-              TextStyle(
-                fontSize: 15,
-                color: Colors.black,
-              )
-            ),
+            child: const Text('Pick a date',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.black,
+                )),
           ),
         ],
       ),
