@@ -6,19 +6,23 @@ class Event {
   String? imageUrl;
   int? year;
   String description;
+  String readMore;
 
   Event(
       {required this.title,
       required this.description,
       required this.imageUrl,
-      required this.year});
+      required this.year,
+      required this.readMore});
 
   factory Event.fromJson(json) {
     return Event(
         title: json["pages"][0]["titles"]?["normalized"],
         imageUrl: json["pages"][0]["thumbnail"]?["source"],
         description: json["text"],
-        year: json["year"]);
+        year: json["year"],
+        readMore: json["pages"][0]["content_urls"]?["mobile"]?["page"]
+      );
   }
 
   @override
@@ -30,7 +34,8 @@ class Event {
   }
 }
 
-Future<List<Event>> fetch(String? langue, String? type, String? month, String? day) async {
+Future<List<Event>> fetch(
+    String? langue, String? type, String? month, String? day) async {
   var url = Uri.parse(
       'https://api.wikimedia.org/feed/v1/wikipedia/$langue/onthisday/$type/$month/$day');
   var response = await http.get(url);

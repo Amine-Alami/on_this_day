@@ -20,9 +20,9 @@ class _SearchButtonState extends State<SearchButton> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
-      width: 100,
+      width: 150,
       child: ElevatedButton(
-          style: ButtonStyle(backgroundColor: MaterialStatePropertyAll<Color>(Colors.brown.shade100)),
+          style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll<Color>(Colors.brown)),
           onPressed: () {
             // print(widget.langue);
             // print(widget.type);
@@ -36,7 +36,7 @@ class _SearchButtonState extends State<SearchButton> {
           },
           child: const Text(
             "Show me what happened",
-            style: TextStyle(fontSize: 15, color: Colors.brown),
+            style: TextStyle(fontSize: 15, color: Colors.white),
             textAlign: TextAlign.center,
           )),
     );

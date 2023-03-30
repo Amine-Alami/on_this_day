@@ -83,7 +83,14 @@ class Font extends StatelessWidget {
                     image: AssetImage("assets/back-image.jpg"),
                     fit: BoxFit.cover,
                     opacity: 0.6)),
-            child: widget
+            child: RefreshIndicator(
+              onRefresh: _refresh,
+              child: widget
+              )
             ));
+  }
+
+  Future<void> _refresh() async {
+    await Future.delayed(const Duration(seconds: 2));
   }
 }

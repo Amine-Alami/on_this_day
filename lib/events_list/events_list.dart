@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:on_this_day/events_list/event.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class EventsList extends StatefulWidget {
   EventsList({
@@ -45,7 +46,7 @@ class _EventsListState extends State<EventsList> {
         }
 
         // By default, show a loading spinner.
-        return const CircularProgressIndicator();
+        return const Center(child: CircularProgressIndicator());
       },
     );
   }
@@ -82,10 +83,23 @@ class _EventsListState extends State<EventsList> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                     child: Text(event.description),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                    child: GestureDetector(
+                      onTap: () => launch(event.readMore),
+                      child: const Text.rich(
+                        TextSpan(
+                          text: 'Read more...',
+                          style: TextStyle(
+                            color: Colors.blue
+                          ),
+                        ),
+                      ),
+                    ),
                   )
                 ]))));
   }
-
   @override
   Widget build(BuildContext context) {
     return _eventCards();
